@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" type = "text/css" href="/css/style.css">
+  <title>CookBook</title>
+</head>
+<body class="view-recipe">
+ <% include contentsnewrecipe.ejs %>   
+<div class="animate-in">
+
+	<div class="recipe-content">
+
+  		<!--update button-->
+  		<div>
+
+  		 	<button class="btn" onclick="changeToEdit(this, <%=JSON.stringify(recipeContents)%>)">Edit Recipe</button>
+		</div>
+		<h1 class = "RecipeTitle"> <%= recipeContents.recipe%> </h1>
+
+
+  		<!--recipe-->
+  		<div class="view">
+       	 	<div class="cookie-recipe">
+          		<span>Serving Size: <%= recipeContents.servingsize%></span><br>
+              <br>
+
+              <span> Ingredients:</span><br>
+          		<!-- display amount next to ingredient -->
+          		<% for(var i=0; i<recipeContents.amount.length; i++) {%>
+                <% if (recipeContents.amount[i] == "" || recipeContents.amount[i] == '')continue; %>
+          			<span><%= recipeContents.amount[i]%></span> <span><%= recipeContents.ingredient[i]%></span><br>
+ 	 			    <% } %>
+            <br>
+
+          		<!--display steps-->
+             <span> Directions: </span><br>
+          		<% for(var i=0; i<recipeContents.step.length; i++) {%>
+          			<span><%= recipeContents.stepCount[i]%>. <%= recipeContents.step[i]%></span><br>
+ 	 			<% } %>
+
+
+       	 	</div>
+  		</div>
+
+
+  	</div>
+</div>
+<script src="/js/scripts.js"></script>
+</body>
+</html>

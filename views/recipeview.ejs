@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" type = "text/css" href="/css/style.css">
+  <title>CookBook</title>
+</head>
+<body class="view-recipe hide-scrollbar" id="view-recipe">
+<div>
+ <% include contents.ejs %>    
+	<div class="recipe-content animate-in">
+
+<nav id="recipe-toc">
+ <a class="recipe-toc" href="#ingredients-directions">Ingredients</a>
+   <a class="recipe-toc" href="#gallery">Gallery</a>
+    <a class="recipe-toc" href="#view-recipe">Top</a>
+   </nav>
+
+  		<!--recipe-->
+  		<div class="view" id="view">
+
+
+       	 	<div class="cookie-recipe">
+
+              <section id="top-section">  <button class="btn edit" onclick="editTop(this, <%=JSON.stringify(recipeContents)%>)">Edit</button>
+                          <h1 class = "RecipeTitle"> <%= recipeContents.recipe%>  </h1>
+
+               <!--times-->
+                 <span>Serving Size: <%= recipeContents.servingsize%></span>
+                <span>Prep Time: <%= recipeContents.preptime%></span>
+                <span>Cook Time: <%= recipeContents.cooktime%></span><br><br>
+                <span> <%= recipeContents.description%></span><br> <br>
+
+
+
+<!--                 <div class="bounce">
+                    <a href="#ingredients"><img src="/images/down.png" height=35px width=35px></a>
+               </div> -->
+
+              </section>
+
+              <section id = "ingredients-directions">
+                  <div id="ingredients">
+                    <span> Ingredients </span><button class="btn edit" onclick="editIngredients(this, <%=JSON.stringify(recipeContents)%>)">Edit</button><br>
+              		  <!-- display amount next to ingredient -->
+              		  <% for(var i=0; i<recipeContents.ingredient.length; i++) {%>
+                     <% if (recipeContents.ingredient[i] == "" || recipeContents.ingredient[i] == '')continue; %>
+              			 <span><%= recipeContents.ingredient[i]%></span><br>
+     	 			        <% } %>
+                    <br>
+                  </div>
+
+                  <div id="separator" ></div>
+                    <div id = "directions">
+                     
+                      <!--display steps-->
+                      <span> Directions </span><button class="btn edit" onclick="editDirections(this, <%=JSON.stringify(recipeContents)%>)">Edit</button><br>
+                      <% for(var i=0; i<recipeContents.step.length; i++) {%>
+                        <span><%= recipeContents.stepCount[i]%>. <%= recipeContents.step[i]%></span><br>
+                       <% } %>
+
+      <!--                  <div class="bounce">
+                          <a href="#gallery"><img src="/images/down.png" height=35px width=35px></a>
+                       </div> -->
+                    </div>
+              </section>
+
+
+              
+              <section id="gallery"><button class="btn edit" onclick="editGallery(this, <%=JSON.stringify(recipeContents)%>)">Edit</button>
+                <span> Gallery: </span> <br>
+                 <img class="recipe-header" src="/uploads/<%=recipeContents.picture%>">
+              </section>
+
+
+       	 	</div>
+  		</div>
+
+
+  	</div>
+</div>
+<script src="/js/zenscroll-min.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <!--   <script src="https://use.fontawesome.com/d853a9d575.js"></script>-->
+  <!--  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">-->
+       <link rel="stylesheet" type = "text/css" href="/css/style.css">
+<title>Table of Contents</title>
+</head>
+<body>
+
+
+<div id="contents" class="sidenav">
+
+
+<div id="logout">
+  Welcome, <%=username %>!  </div>
+  <div class = "buttons">
+    <form action="/enter" method="GET">
+<button class="contentsbtn" type="submit" id = "add-new-recipe">Add New Recipe</button>
+</form>
+
+
+  <form action="/logout" method="GET">
+<button class="contentsbtn" type="submit" id = "logout">Logout</button>
+</form>
+
+</div> <br> <br>
+
+<h1> Table of Contents </h1>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <div class="dropdown-cookies">
+  <button onclick="openDropdown(this)" class="dropbtn">Cookies</button>
+    <div class="dropdown-content">
+    <% for(var i=0; i<recipes[0].length; i++) {%>
+        <div class="cookie">
+          <a href="/recipe/<%=recipes[0][i].Category%>/<%=recipes[0][i].recipe%>/<%=recipes[0][i]._id%>/<%=recipes[0][i].username%>/"><%= recipes[0][i].recipe %></a>
+        </div>
+    <% } %>
+    </div>
+   </div>
+
+  <div class="dropdown-cakes">
+  <button onclick="openDropdown(this)" class="dropbtn">Cakes</button>
+    <div class="dropdown-content">
+    <% for(var i=0; i<recipes[3].length; i++) {%>
+        <div class="cake">
+          <a href="/recipe/<%=recipes[3][i].Category%>/<%=recipes[3][i].recipe%>/<%=recipes[3][i]._id%>/<%=recipes[3][i].username%>/"><%= recipes[3][i].recipe %></a>
+        </div>
+    <% } %>
+    </div>
+   </div>
+
+  <div class="dropdown-breads">
+  <button onclick="openDropdown(this)" class="dropbtn">Breads</button>
+    <div class="dropdown-content">
+    <% for(var i=0; i<recipes[2].length; i++) {%>
+        <div class="bread">
+          <a href="/recipe/<%=recipes[2][i].Category%>/<%=recipes[2][i].recipe%>/<%=recipes[2][i]._id%>/<%=recipes[2][i].username%>/"><%= recipes[2][i].recipe %></a>
+        </div>
+    <% } %>
+    </div>
+   </div>
+
+  <div class="dropdown-pies">
+  <button onclick="openDropdown(this)" class="dropbtn">Pies</button>
+    <div class="dropdown-content">
+    <% for(var i=0; i<recipes[1].length; i++) {%>
+        <div class="pie">
+          <a href="/recipe/<%=recipes[1][i].Category%>/<%=recipes[1][i].recipe%>/<%=recipes[1][i]._id%>/<%=recipes[1][i].username%>/"><%= recipes[1][i].recipe %></a>
+        </div>
+    <% } %>
+    </div>
+   </div>
+
+</div>
+
+<!-- Use any element to open the sidenav
+<span onclick="openNav()">open</span> -->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/scripts.js"></script>
+</body>
+</html>

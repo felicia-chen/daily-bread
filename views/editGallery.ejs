@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" type = "text/css" href="/css/style.css">
+  <title>CookBook</title>
+</head>
+<body class="editGallery">
+
+
+<!--form to add a recipe-->
+  <form class = "newForm" action="/editGallery/<%=recipeContents.Category%>/<%=recipeContents._id%>/<%=recipeContents.username%>/" method="POST" enctype="multipart/form-data">
+<!-- <input type="hidden" name='filename' value ="<%=recipeContents.picture%>"> -->
+ 
+
+ <input type="file" name="pic" accept="image/*" required/><br>
+  <button class="btn" type="submit" id = "submitRecipe">Submit</button>
+</form>
+
+<script src="/js/scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+.animate-in {
+    -webkit-animation: fadeIn .3s ease-in;
+    animation: fadeIn .3s ease-in;
+}
+.animate-out {
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    opacity: 0;
+}
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+ .bounce {
+    position: absolute;
+      text-align: center;
+    left:50%;
+    bottom:0;
+      margin-top: 0px;
+      margin-left: -25px;
+      margin-bottom: 100px;
+    height:50px;
+    width:50px;
+    -webkit-animation:bounce 1s infinite;
+    -moz-animation:bounce 1s infinite;
+    -o-animation:bounce 1s infinite;
+    animation:bounce 1s infinite;
+    
+  }
+.bounce a{
+    text-align: center;
+}
+  
+  @-webkit-keyframes bounce {
+    0%       { bottom:0px; }
+    50%      { bottom:10px; }
+    100%     {bottom:20;}
+  }
+  
+   @-moz-keyframes bounce {
+    0%       { bottom:0px; }
+    50%      { bottom:10px; }
+    100%     {bottom:20;}
+  }
+  
+   @-o-keyframes bounce {
+    0%       { bottom:0px; }
+    50%      { bottom:10px; }
+    100%     {bottom:20;}
+  }
+  
+   @keyframes bounce {
+    0%       { bottom:0px; }
+    50%      { bottom:10px; }
+    100%     {bottom:20;}
+  }
+
+
+
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+     
+	margin: 0;
+    padding: 0;
+    height: 100%;
+}
+header {
+    margin: 0 auto;
+    padding-bottom: 50px;
+    position: relative;
+     display: inline-block;
+    width: 100%;
+    height: 50rem;
+    background: linear-gradient(rgba(255,255,255,0.5),
+        rgba(0,0,0,0.21)),
+        url(/images/side.jpg) no-repeat fixed;
+    background-size: cover;
+}
+h1, h2 {
+    font-weight:  300;
+    text-transform: none;
+}
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+}
+#top-section, #ingredients-directions, #gallery {
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    text-transform: uppercase;
+    line-height: 2rem;
+
+}
+
+/*-------------------------recipe view nav----------------------------------*/
+#recipe-toc {
+    position: fixed;
+}
+
+/*-------------------------homepage styles----------------------------------*/
+
+.home .header-text {
+	margin-top: 175px;
+	letter-spacing: 0.3rem;
+	text-align: center;
+}
+.home .btn {
+    background-color:  #b3c2c3;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    display: inline-block;
+    font-size: 10px;
+    margin: 5px 0px;
+    cursor: pointer;
+    
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+.btn:hover {
+    color: black;
+}
+.home input {
+    width: 10rem;
+}
+.buttons form {
+    width: 100%;
+    display:inline;
+    text-align: center;
+}
+.contentsbtn {
+    display:inline;
+}
+
+/*-------------------------table of contents----------------------------------*/
+#recipe-toc {
+    margin-top: 20px;
+    margin-left: 10px;
+    z-index: 100;
+    color:white;
+}
+.recipe-toc {
+    text-decoration: none;
+    background-color: #afafaf;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 7px;
+}
+.sidenav {
+	display: inline-block;
+	width: 320px;
+	height: 100%; /* 100% Full-height */
+    position: fixed; /* Stay in place */
+    text-align: center;
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #333333; 
+    overflow-x: hidden; 
+    overflow-y: auto;
+    padding-top: 60px; 
+    transition: 0.5s; 
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 16px;
+    font-size: 11px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+#contents h1 {
+	font-size: 15px;
+}
+.dropbtn:hover {
+     background-color: #b3c2c3;
+    color: #324A5F;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    min-width: 160px;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 1rem;
+}
+.dropdown-content span:hover {
+	color: blue;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+    
+/*-----------------new recipe view----------------------------------*/
+.index {
+    margin:0 auto;
+        position: relative;
+     display: inline-block;
+    width: 100%;
+    height: 100vh;
+        background-color: #e2e2e2;
+/*        background: linear-gradient(rgba(255,255,255,0.9),
+        rgba(0,0,0,0.41)),
+        url(/images/side.jpg) no-repeat fixed;*/
+    background-size: cover;
+
+}
+.newrecipe{
+     margin-left: auto;
+    margin-right: auto;
+    width: 30em
+}
+.viewportnew {
+    margin-left: 320px;
+}
+.viewportnew h1{
+    text-align: center;
+}
+input {
+    width: 400px;
+}
+textarea{
+    resize: vertical;
+    width: 400px;
+}
+
+
+/*-----------------pasted recipe view---------------------------------*/
+.view-recipe {
+    font-size: 11px;
+    margin:0 auto;
+        position: relative;
+     display: inline-block;
+    width: 100%;
+    height: 100vh;
+    background-color: #e2e2e2;
+/*        background: linear-gradient(rgba(255,255,255,0.3),
+        rgba(255,255,255,0.3)),
+        url(/images/half.jpg) no-repeat fixed;*/
+    background-size: cover;
+    overflow:hidden;
+}
+.recipe-content{
+    margin-left: 320px;
+    overflow-y: scroll;
+
+}
+.hide-scrollbar ::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+.view {
+        margin-top: 90px;
+     margin-left: auto;
+    margin-right: auto;
+}
+.recipe-content h1 {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 5rem;
+    border-bottom: 1px solid black;
+}
+#top-section, #gallery, #gallery img {
+    text-align: center;
+        width: 30rem
+}
+.img{
+    min-width: 100%;
+}
+#ingredients-directions, #gallery {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    overflow-y: scroll;
+}
+#ingredients-directions {
+     width: 80rem;
+}
+#ingredients, #directions {
+    width: 30rem;
+    float: left;
+}
+#ingredients {
+    text-align: right;
+}
+#separator {
+    float: left;
+    margin: 10px;
+    border-left: 1px solid black;
+    height: 500px;
+}
+.edit {
+
+}
+/*-----------------edited recipe view---------------------------------*/
+.editrecipe {
+        margin:0 auto;
+padding-bottom: 300px;
+    text-align: right;
+        position: relative;
+     display: inline-block;
+    width: 100%;
+    height: 50rem;
+}
+
+section #directions {
+    padding-bottom: 100px;
+}
+.ingredients input[type=text]{
+
+}
