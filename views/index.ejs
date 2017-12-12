@@ -3,21 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
       <link rel="stylesheet" type = "text/css" href="/css/style.css">
-  <title>CookBook</title>
+  <title>daily bread</title>
 </head>
 <body class="index">
 
  <% include contents.ejs %>    
 <div class = "viewportnew animate-in">
-	<h1 class = "newRecipe"> Add a New Recipe </h1>
 	<div class="newrecipe">
-	<% include index.html %>
+	<h1 class = "newRecipe decorated"> add a new recipe </h1>
+	 <!--form to add a recipe-->
+	  <form class = "newForm" action = "/recipe" method = "POST" enctype="multipart/form-data">
+	 <!-- <form class="newForm">-->
+	  <div class="inline"><div class ="title"> Name </div>
+	  <input type="text" style="width: 41%" placeholder="Cookies" name="recipe" required></div>
+
+
+	  <div class="inline"><div class ="title">Category</div>
+	  <select name="Category">
+	    <option value="Breakfast">Breakfast</option>
+	    <option value="Appetizer">Appetizers</option>
+	    <option value="Soup">Soups + Salads</option>
+	    <option value="Main">Main Dishes</option>
+	    <option value="Side">Veggies + Side Dishes</option>
+	    <option value="Bread">Breads</option>
+	    <option value="Drink">Drinks</option>
+	    <option value="Dessert">Dessert</option>
+	    <option value="Misc">Misc</option>
+	  </select></div>
+
+	  <br>
+
+	  <p><div class="title">Serving Size </div><input type="aligned text" placeholder="4" name="servingsize" required></p>
+	  <p><div class="title">Prep Time </div><input type="aligned text" placeholder="30 minutes" name="preptime" required></p>
+	  <p><div class="title">Cook Time </div><input type="aligned text" placeholder="1 hour" name="cooktime" required> </p>
+
+	  <br>
+
+
+	   <div class="centered"><div class ="title"> Description<br></div>
+	  <textarea name="description" rows="5"></textarea><br>
+
+	  <div class="centered"><div class ="title">Ingredients</div>
+	  <div class="ingredients">
+	     <textarea name="ingredient" rows="7" placeholder="Please place each ingredient on a new line"></textarea><br></div>
+	     </div>
+	  </div>
+
+
+		<div class="centered"><div class ="title"> Directions</div>    
+		<div class="directions">
+	     <textarea name="step" rows="7" placeholder="Please place each step on a new line; do not number your steps"></textarea><br>
+	    </div>
+		</div>
+
+	  <div class="centered"><div class ="title"> Recipe Notes</div>    
+	  <div class="notes">
+	     <textarea name="notes" rows="7" placeholder="Please place recipe notes and modifications here"></textarea><br>
+	    </div>
+	  </div>
+
+
+	      Images 
+	  <input type="file" name="pic" accept="image/*" multiple required/><br><br>
+
+
+	  <button style="display: block; margin: 0 auto" type="submit" class="btn" id = "submitRecipe">Submit</button>
+	</form>
+
 	</div>
-
-
-<div id = "newrecipeview">    
- </div>
+	<div id = "newrecipeview">    
+ 	</div>
 </div>
 
 </body>

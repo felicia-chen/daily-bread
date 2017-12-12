@@ -2,166 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
   <link rel="stylesheet" type = "text/css" href="/css/style.css">
-<title>Table of Contents</title>
+  <title>daily bread</title>
 </head>
-  <body>
-    <div id="contents" class="sidenav">
-    <ul>
-<!--       <li class="logo"><div>Logo</div></li> -->
-      <li><div id="welcome" class="dropbtn">
-        Welcome, <%=username %>!  
-          <div class="dropdown-content">
-            <div><a href ="/userprofile">View Profile</a></div>
-            <div><a href ="/calendar">Meal Planner</a></div>
-          </div>
-          </div>
-      </li>
+<body class="index">
+ <% include contents.ejs %>    
+  <div class="viewportnew animate-in">
+	  <div class="profile grocerylist">
+		  <h1 class="decorated"> <%=username%></h1>
+      <% var counter = 0; %>
 
-      <li> <div class = "buttons">
-        <form action="/enter" method="GET">
-          <button class="btn contentsbtn" type="submit" id = "add-new-recipe">Add New Recipe</button>
-        </form>
-        <form action="/logout" method="GET">
-          <button class="btn contentsbtn" type="submit" id = "logout">Logout</button>
-        </form>
-      </div></li> 
-
-
-      <li><div class="cat dropdown-br">
-        <div class="dropbtn">Breakfast
-          <div class="dropdown-content">
+    <div class='container'>
+      <div class = 'col1'>
+        <div>
+          <p>Breakfast</p><hr>
           <% for(var i=0; i<recipes[0].length; i++) {%>
             <% if (recipes[0][i] != "") { %>
+            <% counter++; %>
               <div class="breakfast">
                 <a href="/recipe/<%=recipes[0][i].recipe%>/<%=recipes[0][i]._id%>/<%=recipes[0][i].username%>/"><%= recipes[0][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-        </div>
-      </div></li>
+        </div></li>
 
-      <li> <div class="cat dropdown-appetizer">
-        <div class="dropbtn">Appetizers
-          <div class="dropdown-content">
+        <div>
+          <p> Appetizers</p><hr>
           <% for(var i=0; i<recipes[1].length; i++) {%>
               <% if (recipes[1][i] != "") { %>
+              <% counter++; %>
               <div class="appetizer">
                 <a href="/recipe/<%=recipes[1][i].recipe%>/<%=recipes[1][i]._id%>/<%=recipes[1][i].username%>/"><%= recipes[1][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-        </div>
-      </div></li>
+        </div></li>
 
-       <li> <div class="cat dropdown-soup">
-        <div class="dropbtn">Soups + Salads
-          <div class="dropdown-content">
+        <div>
+          <p> Soups + Salads</p><hr>
           <% for(var i=0; i<recipes[2].length; i++) {%>
             <% if (recipes[2][i] != "") { %>
+              <% counter++; %>
               <div class="soup">
                 <a href="/recipe/<%=recipes[2][i].recipe%>/<%=recipes[2][i]._id%>/<%=recipes[2][i].username%>/"><%= recipes[2][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-         </div>
         </div></li>
+      </div>
 
-       <li> <div class="cat dropdown-main">
-        <div class="dropbtn">Main Dishes
-          <div class="dropdown-content">
+
+
+      <div class="col2">
+        <div>
+          <p> Main Dishes </p><hr>
           <% for(var i=0; i<recipes[3].length; i++) {%>
             <% if (recipes[3][i] != "") { %>
+              <% counter++; %>
               <div class="main">
                 <a href="/recipe/<%=recipes[3][i].recipe%>/<%=recipes[3][i]._id%>/<%=recipes[3][i].username%>/"><%= recipes[3][i].recipe %></a>
               </div>
             <% } %>
-            <% } %>
-          </div>
-         </div>
+          <% } %>
         </div></li>
 
-       <li> <div class="cat dropdown-side">
-        <div class="dropbtn">Veggies + Side Dishes
-          <div class="dropdown-content">
+        <div>
+          <p> Veggies + Side Dishes</p><hr>
           <% for(var i=0; i<recipes[4].length; i++) {%>
             <% if (recipes[4][i] != "") { %>
+              <% counter++; %>
               <div class="side">
                 <a href="/recipe/<%=recipes[4][i].recipe%>/<%=recipes[4][i]._id%>/<%=recipes[4][i].username%>/"><%= recipes[4][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-         </div>
        </div></li>
 
-       <li> <div class="cat dropdown-bread">
-        <div class="dropbtn">Breads
-          <div class="dropdown-content">
+        <div>
+        <p> Breads </p><hr>
           <% for(var i=0; i<recipes[5].length; i++) {%>
             <% if (recipes[5][i] != "") { %>
+              <% counter++; %>
               <div class="bread">
                 <a href="/recipe/<%=recipes[5][i].recipe%>/<%=recipes[5][i]._id%>/<%=recipes[5][i].username%>/"><%= recipes[5][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-        </div>
       </div></li>
+      </div>
 
-       <li> <div class="cat dropdown-drink">
-        <div class="dropbtn">Drinks
-          <div class="dropdown-content">
+
+
+      <div class="col3">
+        <div>
+          <p> Drinks</p><hr>
           <% for(var i=0; i<recipes[6].length; i++) {%>
             <% if (recipes[6][i] != "") { %>
+              <% counter++; %>
               <div class="drink">
                 <a href="/recipe/<%=recipes[6][i].recipe%>/<%=recipes[6][i]._id%>/<%=recipes[6][i].username%>/"><%= recipes[6][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-        </div>
       </div></li>
 
-       <li> <div class="cat dropdown-dessert">
-        <div class="dropbtn">Dessert
-          <div class="dropdown-content">
+        <div>
+          <p> Desserts </p><hr>
           <% for(var i=0; i<recipes[7].length; i++) {%>
             <% if (recipes[7][i] != "") { %>
+              <% counter++; %>
               <div class="dessert">
                 <a href="/recipe/<%=recipes[7][i].recipe%>/<%=recipes[7][i]._id%>/<%=recipes[7][i].username%>/"><%= recipes[7][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-         </div>
       </div></li>
 
-        <li><div class="cat dropdown-misc">
-        <div class="dropbtn">Misc
-          <div class="dropdown-content">
+        <div>
+          <p> Misc</p><hr>
           <% for(var i=0; i<recipes[8].length; i++) {%>
             <% if (recipes[8][i] != "") { %>
+              <% counter++; %>
               <div class="misc">
                 <a href="/recipe/<%=recipes[8][i].recipe%>/<%=recipes[8][i]._id%>/<%=recipes[8][i].username%>/"><%= recipes[8][i].recipe %></a>
               </div>
             <% } %>
           <% } %>
-          </div>
-        </div>
       </div></li>
+      </div>
+      </div>
 
-        <li><div class ="cat grocery-list">
-          <a class="grocery" href="/grocerylist/">Grocery List</a>
-        </div></li>
-      </ul>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/js/scripts.js"></script>
-  </body>
+<br><br><br>
+      <p style="color:white"> Total Recipes: <%= counter %> </p>
+
+
+	 </div>
+  </div>
+</body>
+<script src="/js/scripts.js"></script>
 </html>

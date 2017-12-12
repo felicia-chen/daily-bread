@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <link rel="stylesheet" type = "text/css" href="/css/style.css">
-  <title>CookBook</title>
+  <title>daily bread</title>
 </head>
 <body class="editIngredients">
 
@@ -16,11 +16,11 @@
 	<!--previous ingredients-->
 	Ingredients: <br>  <button class="btn" type="submit" id = "submitRecipe">Submit</button>
 	<div class="ingredients">
-		<button class="btn" type="button" id="add-ingredient">+</button><br>
+		<img src="/images/plus.png" style="height:20px;width:20px" class="edit-img" id="add-ingredient"><br>
 		<!-- display amount next to ingredient -->
         <% for(var i=0; i<recipeContents.ingredient.length; i++) {%>
             <% if (recipeContents.ingredient[i] == "" || recipeContents.ingredient[i] == '')continue; %>
-    		<input type="text" value="<%= recipeContents.ingredient[i]%>" name="ingredient" required><br>
+    		<input type="text" value="<%= recipeContents.ingredient[i]%>" name="ingredient"><br>
  	 	<% } %>
   
 	</div>

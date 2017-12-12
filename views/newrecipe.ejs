@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <link rel="stylesheet" type = "text/css" href="/css/style.css">
-  <title>CookBook</title>
+  <title>daily bread</title>
 </head>
 <body class="view-recipe">
  <% include contentsnewrecipe.ejs %>   
@@ -17,11 +17,11 @@
 
   		 	<button class="btn" onclick="changeToEdit(this, <%=JSON.stringify(recipeContents)%>)">Edit Recipe</button>
 		</div>
-		<h1 class = "RecipeTitle"> <%= recipeContents.recipe%> </h1>
 
 
   		<!--recipe-->
   		<div class="view">
+          <h1 class = "RecipeTitle"> <%= recipeContents.recipe%> </h1>
        	 	<div class="cookie-recipe">
           		<span>Serving Size: <%= recipeContents.servingsize%></span><br>
               <br>

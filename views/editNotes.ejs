@@ -6,15 +6,14 @@
       <link rel="stylesheet" type = "text/css" href="/css/style.css">
   <title>daily bread</title>
 </head>
-<body class="editGallery">
+<body class="editNotes">
 
 
 <!--form to add a recipe-->
-  <form class = "newForm" action="/editGallery/<%=recipeContents.Category%>/<%=recipeContents._id%>/<%=recipeContents.username%>/" method="POST" enctype="multipart/form-data">
-<!-- <input type="hidden" name='filename' value ="<%=recipeContents.picture%>"> -->
- 
-
- <input type="file" name="pic" accept="image/*" multiple required/><br>
+  <form class = "newForm" action="/update/<%=recipeContents.Category%>/<%=recipeContents._id%>/<%=recipeContents.username%>/editNotes" method="POST">
+<input type="hidden" name='filename' value ="<%=recipeContents.picture%>">
+   Notes:<br>
+  <textarea name="notes" rows="15"><%= recipeContents.notes%></textarea><br>
   <button class="btn" type="submit" id = "submitRecipe">Submit</button>
 </form>
 

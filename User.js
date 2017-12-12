@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');  
-mongoose.connect('mongodb://felchen-cookbook:zaidoreiyu@ds259305.mlab.com:59305/cookbook-recipe-database');
+mongoose.connect('mongodb://felchen:FELCHEN@ds029426.mlab.com:29426/felchen-cookbook');
 
 var bcrypt = require('bcrypt');
 

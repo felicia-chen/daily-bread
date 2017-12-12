@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <link rel="stylesheet" type = "text/css" href="/css/style.css">
-  <title>CookBook</title>
+  <title>daily bread</title>
 </head>
 <body class="editTop">
 
 
 <!--form to add a recipe-->
-  <form class = "newForm" action="/update/<%=recipeContents.Category%>/<%=recipeContents._id%>/<%=recipeContents.username%>/editTop" method="POST">
+  <form class = "newForm editTop" action="/update/<%=recipeContents.Category%>/<%=recipeContents._id%>/<%=recipeContents.username%>/editTop" method="POST">
 <input type="hidden" name='filename' value ="<%=recipeContents.picture%>">
   Recipe Name: 
   <input type="text" value="<%=recipeContents.recipe%>" name="recipe"><br>
@@ -21,7 +21,7 @@
 	Prep Time:
 	  <input type="text" value="<%=recipeContents.preptime%>" name="preptime">
 	Cook Time:
-	  <input type="text" value="<%=recipeContents.cooktime%>" name="cooktime">
+	  <input type="text" value="<%=recipeContents.cooktime%>" name="cooktime"> <br>
 
   <button class="btn" type="submit" id = "submitRecipe">Submit</button>
 </form>

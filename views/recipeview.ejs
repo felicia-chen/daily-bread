@@ -3,83 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" type = "text/css" href="/css/style.css">
-  <title>CookBook</title>
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+  <link rel="stylesheet" type = "text/css" href="/css/style.css">
+  <title> daily bread </title>
 </head>
 <body class="view-recipe hide-scrollbar" id="view-recipe">
 <div>
- <% include contents.ejs %>    
-	<div class="recipe-content animate-in">
+  <% include contents.ejs %>    
+  <div class="recipe-content animate-in">
 
-<nav id="recipe-toc">
- <a class="recipe-toc" href="#ingredients-directions">Ingredients</a>
-   <a class="recipe-toc" href="#gallery">Gallery</a>
-    <a class="recipe-toc" href="#view-recipe">Top</a>
-   </nav>
+    <nav id="recipe-toc">
+      <a class="recipe-toc" href="#ingredients-directions">Directions</a>
+      <a class="recipe-toc" href="#notes">Recipe Notes</a>
+      <a class="recipe-toc" href="#gallery">Gallery</a>
+      <a class="recipe-toc" href="#view-recipe">Top</a>
+    </nav>
 
-  		<!--recipe-->
-  		<div class="view" id="view">
-
-
-       	 	<div class="cookie-recipe">
-
-              <section id="top-section">  <button class="btn edit" onclick="editTop(this, <%=JSON.stringify(recipeContents)%>)">Edit</button>
-                          <h1 class = "RecipeTitle"> <%= recipeContents.recipe%>  </h1>
-
-               <!--times-->
-                 <span>Serving Size: <%= recipeContents.servingsize%></span>
-                <span>Prep Time: <%= recipeContents.preptime%></span>
-                <span>Cook Time: <%= recipeContents.cooktime%></span><br><br>
-                <span> <%= recipeContents.description%></span><br> <br>
+    <!--recipe-->
+    <div class="view" id="view">
+      <div class="cookie-recipe">
+        <section id="top-section" style="background: linear-gradient(rgba(0,0,0,0.75),
+            rgba(0,0,0,0.75)),
+            url(/uploads/<%=recipeContents.picture[0]%>) no-repeat fixed;
+             background-size: cover;">  
+          <div class="top"><button class="btn rec-btn edit" onclick="editTop(this, <%=JSON.stringify(recipeContents)%>)">Edit</button>
+            <button class="btn rec-btn delete" onclick="deleteRecipe(this, <%=JSON.stringify(recipeContents)%>)">Delete Recipe</button>
+            <h1> <%= recipeContents.recipe%><img id="myBtn" title = "Add Recipe to Meal Planner" class="edit-img" src="/images/plus.png" style="width:15px;height:15px;margin-bottom:35px;margin-left:10px">  </h1><hr>
 
 
+              <!-- The Modal -->
+              <div id="myModal" class="modal animate-in">
 
-<!--                 <div class="bounce">
-                    <a href="#ingredients"><img src="/images/down.png" height=35px width=35px></a>
-               </div> -->
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Add Recipe to Meal Plan</p>
+                  <form class = "newForm" action = "/mealplanner" method = "POST">
+                    <input type="hidden" name="id" value="<%= recipeContents._id%>">
+                    <input type="hidden" name="recipe" value="<%= recipeContents.recipe%>">
+                    <select name="day">
+                      <option value="m">Monday</option>
+                      <option value="t">Tuesday</option>
+                      <option value="w">Wednesday</option>         
+                      <option value="th">Thursday</option>
+                      <option value="f">Friday</option>
+                      <option value="sa">Saturday</option>
+                      <option value="sn">Sunday</option> 
+                    </select>
+                    <select name="category">
+                      <option value="Breakfast">Breakfast</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Dinner">Dinner</option>         
+                      <option value="Snacks">Snacks</option>
+                    </select><br><br>
+                    <button style="display: block; margin: 0 auto" class="btn modal-submit" onclick="closeModal()" type="submit">Submit</button>
+                    <div class="submitted-meal"><p> Recipe added to meal planner! </p> </div>
+                  </form>
+                </div>
 
-              </section>
-
-              <section id = "ingredients-directions">
-                  <div id="ingredients">
-                    <span> Ingredients </span><button class="btn edit" onclick="editIngredients(this, <%=JSON.stringify(recipeContents)%>)">Edit</button><br>
-              		  <!-- display amount next to ingredient -->
-              		  <% for(var i=0; i<recipeContents.ingredient.length; i++) {%>
-                     <% if (recipeContents.ingredient[i] == "" || recipeContents.ingredient[i] == '')continue; %>
-              			 <span><%= recipeContents.ingredient[i]%></span><br>
-     	 			        <% } %>
-                    <br>
-                  </div>
-
-                  <div id="separator" ></div>
-                    <div id = "directions">
-                     
-                      <!--display steps-->
-                      <span> Directions </span><button class="btn edit" onclick="editDirections(this, <%=JSON.stringify(recipeContents)%>)">Edit</button><br>
-                      <% for(var i=0; i<recipeContents.step.length; i++) {%>
-                        <span><%= recipeContents.stepCount[i]%>. <%= recipeContents.step[i]%></span><br>
-                       <% } %>
-
-      <!--                  <div class="bounce">
-                          <a href="#gallery"><img src="/images/down.png" height=35px width=35px></a>
-                       </div> -->
-                    </div>
-              </section>
-
-
-              
-              <section id="gallery"><button class="btn edit" onclick="editGallery(this, <%=JSON.stringify(recipeContents)%>)">Edit</button>
-                <span> Gallery: </span> <br>
-                 <img class="recipe-header" src="/uploads/<%=recipeContents.picture%>">
-              </section>
+              </div>
 
 
-       	 	</div>
-  		</div>
+            <div id="rating">
+            <% for(var i=1; i<=parseInt(recipeContents.rating); i++) {%>
+                <img src="/images/stargold.png" style="width:20px;height:20px" class="edit-img" id="rate_image_<%=i%>" onclick="rate(<%=i%>, <%=JSON.stringify(recipeContents._id)%>);" />
+            <% } %>
+            <% for(var i=parseInt(recipeContents.rating) + 1; i <= 5; i++) {%>
+                <img src="/images/star.png" style="width:20px;height:20px" class="edit-img" id="rate_image_<%=i%>" onclick="rate(<%=i%>, <%=JSON.stringify(recipeContents._id)%>);" />
+            <% } %>
+            </div>
+            <!--times-->
+            <span>Serving Size: <%= recipeContents.servingsize%></span>
+            <span>Prep Time: <%= recipeContents.preptime%></span>
+            <span>Cook Time: <%= recipeContents.cooktime%></span><br><br>
+            <div class="descrip"><span> <%= recipeContents.description%></span></div><br> <br>
+          </div>
+        </section>
+        
+        <section id = "ingredients-directions">
+          <div id="ingredients">
+            <span> Ingredients </span><img src="/images/edit.png" style="width:20px;height:20px" class="edit-img" onclick="editIngredients(this, <%=JSON.stringify(recipeContents)%>)"><br>
+            <!-- display amount next to ingredient -->
+              <% for(var i=0; i<recipeContents.ingredient.length; i++) {%>
+                <% if (recipeContents.ingredient[i] == "" || recipeContents.ingredient[i] == '')continue; %>
+                    <img src="/images/plus.png" title="Add to Grocery List" onclick="addToGrocery(this)" style="height:10px;width:10px" class="edit-img" id="add-to-grocery">
+                    <span><%= recipeContents.ingredient[i]%></span><br>                 
+         	 		<% } %>
+              <br>
+          </div>
+          <div id="separator" ></div>
+          <div id = "directions">
+         <!--display steps-->
+          <span> Directions </span><img src="/images/edit.png" style="width:20px;height:20px" class="edit-img" onclick="editDirections(this, <%=JSON.stringify(recipeContents)%>)"><br>
+            <% for(var i=0; i<recipeContents.step.length; i++) {%>
+              <span class = "numbered ingr-step" onclick="fade(this)"><%= recipeContents.stepCount[i]%></span> <span class="ingr-step" onclick="fadeStep(this)"><%= recipeContents.step[i]%></span><br>
+            <% } %>
+          </div>
+        </section>
 
+        <section id="notes">Notes <img src="/images/edit.png" style="width:20px;height:20px" class="edit-img" onclick="editNotes(this, <%=JSON.stringify(recipeContents)%>)"></button>
+          <div class="notes"><span> <%=recipeContents.notes%></span></div>
+        </section>
+                  
+        <section id="gallery">
+          <span> Gallery </span> <img src="/images/edit.png" style="width:20px;height:20px" class="edit-img" onclick="editGallery(this, <%=JSON.stringify(recipeContents)%>)"><br>
 
-  	</div>
+            <!--Slideshow container-->
+            <div class="gallery">
+              <% for(var i=0; i<recipeContents.picture.length; i++) {%>
+                  <img class="gallery-img" src="/uploads/<%=recipeContents.picture[i]%>">
+              <% } %>
+            </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
 </div>
+
 <script src="/js/zenscroll-min.js"></script>
+<script src="/js/scripts.js"></script>
 </body>
 </html>

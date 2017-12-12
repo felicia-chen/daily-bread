@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+  <link rel="stylesheet" type = "text/css" href="/css/style.css">
+  <title>daily bread</title>
+</head>
+<body class="index">
+ <% include contents.ejs %>    
+  <div class="viewportnew animate-in">
+    <div class="profile grocerylist">
+      <h1 class="decorated"> meal planner <img src="/images/clear.png" style="height:20px;width:20px" class="edit-img" title="Clear Meal Planner" onclick="clearMeals()"></h1>
+      <i style="letter-spacing: 0.2rem"> View a recipe to add it to your meal planner. </i> <br><br>
+
+<table class="planner">
+  <tr>
+    <th></th>
+    <th>Monday</th>
+    <th>Tuesday</th> 
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th> 
+    <th>Saturday</th>
+    <th>Sunday</th>
+  </tr>
+  <tr>
+    <th>Breakfast</th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'm' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">m,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 't' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">t,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'w' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">w,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'th' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">th,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'f' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">f,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sa' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sa,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sn' && meals[i].category == 'Breakfast') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sn,Breakfast</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+  </tr>
+  <tr>
+    <th>Lunch</th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'm' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">m,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 't' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">t,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'w' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">w,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'th' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">th,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'f' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">f,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sa' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sa,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sn' && meals[i].category == 'Lunch') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sn,Lunch</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+  </tr>
+  <tr>
+    <th>Dinner</th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'm' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">m,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 't' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">t,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'w' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">w,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'th' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">th,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'f' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">f,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sa' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sa,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sn' && meals[i].category == 'Dinner') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sn,Dinner</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+  </tr>
+  <tr>
+    <th>Snacks</th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'm' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">m,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 't' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">t,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'w' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">w,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'th' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">th,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'f' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">f,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sa' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sa,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+    <th>
+      <% for (var i = 0; i < meals.length; i++) {%>
+        <% if (meals[i].day == 'sn' && meals[i].category == 'Snacks') { %>
+          <span title="Delete Recipe from Planner" class="delete-meal" style="color:#b78e42"onclick="deleteMeal(this)">&times;</span><div style="display:none">sn,Snacks</div><a href="/recipe/<%=meals[i].recipe%>/<%=meals[i].id%>/<%=meals[i].username%>/"><%= meals[i].recipe %></a>
+        <%}%>
+      <%}%>
+    </th>
+  </tr>
+</table>
+
+   </div>
+  </div>
+</body>
+<script src="/js/scripts.js"></script>
+</html>

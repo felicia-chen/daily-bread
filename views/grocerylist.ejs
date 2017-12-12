@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+      <link rel="stylesheet" type = "text/css" href="/css/style.css">
+  <title>daily bread</title>
+</head>
+<body class="index">
+
+ <% include contents.ejs %>    
+<div class="viewportnew animate-in">
+	<div class="grocerylist">
+		<h1 class="decorated"> grocery list <img src="/images/clear.png" style="height:20px;width:20px" class="edit-img" title="Clear Grocery List" onclick="clearGroceries()"></h1>
+    <i style="letter-spacing: 0.2rem"> View a recipe's ingredients to add items to your grocery list. </i> <br><br>
+		<% var list = groceryList.filter((v,i) => groceryList.indexOf(v)==i) %>
+          <% for(var i=0; i<list.length; i++) {%>
+            <% if (list[i] == "" || list[i] == '')continue; %>
+                <span class="grocery-item" onclick="fadeStep(this)"><%=list[i]%></span><br>                 
+     	 	<% } %>
+	</div>
+</div>
+
+</body>
+<script src="/js/scripts.js"></script>
+</html>
