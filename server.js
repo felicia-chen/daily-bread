@@ -57,7 +57,7 @@ app.post('/login', function(req, res) {
     } else {
       if (isRight) {
         req.session.username = username;
-        res.redirect('/enter');
+        res.redirect('/userprofile');
       } else {
       	var message = "Incorrect password! Please try again.";
  		res.render('errorlogin.ejs', {message: message});
